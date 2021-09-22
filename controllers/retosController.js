@@ -86,19 +86,33 @@ exports.stringManipulation = (req, res) => {
   
   
   // 3. TransformArray
-  // funcion que recibe un array y orden y retorna asc o desc
-  // falta comparar y retorna cualquiera que sea el caso
-  // let newArr = [];
+  // falta poder recibir alfa numericos y dejar solo numericos
+  exports.transformArray = (req, res) => {
+    try {
+      const array = JSON.parse(req.params.arr)
+      const ord = req.params.ord
+      let newArr = [];
   
   
-  // for(let m = 0; m < array.length; m++)
-  // {
-  //     newArr = newArr.concat(array[m]);
-  // }
-  // arrDesc = newArr.sort(function(a, b){return b - a});
-  // console.log(arrDesc)
-  // arrAsc = newArr.sort(function(a, b){return a - b});
-  // console.log(arrAsc)
+      for(let m = 0; m < array.length; m++)
+        newArr = newArr.concat(array[m]);
+
+      if(ord === 'desc'){
+        arrDesc = newArr.sort(function(a, b){return b - a});
+        res.json(arrDesc)
+        console.log(arrDesc)
+      } else if( ord === 'asc'){
+
+        arrAsc = newArr.sort(function(a, b){return a - b});
+        res.json(arrAsc)
+        console.log(arrAsc)
+      } else {
+        return;
+      }
+    } catch (error) {
+      
+    }
+  }
   
   // 4. MyCows
   // MyCows
