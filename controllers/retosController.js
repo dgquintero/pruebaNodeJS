@@ -1,4 +1,6 @@
 
+const { default: axios } = require("axios");
+
 // Encuentra el error
 exports.average = (req, res) => {
   try {
@@ -110,43 +112,64 @@ exports.stringManipulation = (req, res) => {
         return;
       }
     } catch (error) {
-      
+      throw new TypeError("Ha ocurrido un error con este reto");
     }
   }
   
   // 4. MyCows
-  // MyCows
-  // let cows = [[3,4,2,3,4], [2,3,4,5,5], [3,2,2,1,2], [1,1,1,1,1], [2,3,5,2,2], [4,3,4,5,1], [2,2,2,2,2]]
-  // let arr = new Array
-  // // producción por días
-  // var maxLeche = [];
-  // for(let i= 0; i <cows.length; i++){
-  //   let sumDias = 0
-  //   var indexes = [], x;
-  //   for(let j= 0; j <cows[i].length; j++){
-  //     sumDias += cows[i][j]
-  //     if (cows[i][j] === Math.max(...cows[i]))
-  //     indexes.push(j + 1);
-  //   }
-  //   console.log(`Día ${i + 1}: ${sumDias}`)
-  //   arr.push(sumDias)
-  //   maxLeche.push(indexes)
-  
-  // }
-  // // día de la semana mayor y menor produccion
-  // // console.log(arr)
-  // var min = arr.indexOf(Math.min(...arr))
-  // var max = arr.indexOf(Math.max(...arr))
-  // console.log('Mayor producción: Dia ', max + 1)
-  // console.log('Menor producción: Dia ', min + 1)
-  
-  // // vaca que dio mas leche por dia
-  // console.log(maxLeche)
-  
-  
-  
+  exports.myCows = (req, res) => {
+    try {
+      resul = []
+      // console.log(req.params.arr)
+      const cows = JSON.parse(req.params.arr)
+      const n = parseInt(req.params.numero1)
+      let arr = new Array
+      // producción por días
+      var maxLeche = [];
+      for(let i= 0; i <cows.length; i++){
+        let sumDias = 0
+        var indexes = [], x;
+        for(let j= 0; j <cows[i].length; j++){
+          sumDias += cows[i][j]
+          if (cows[i][j] === Math.max(...cows[i]))
+          indexes.push(j + 1);
+        }
+        resul.push([`Día ${i + 1}: ${sumDias}`])
+        console.log(`Día ${i + 1}: ${sumDias}`)
+        arr.push(sumDias)
+        maxLeche.push(indexes)
+      
+      }
+      // día de la semana mayor y menor produccion
+      // console.log(arr)
+      var min = arr.indexOf(Math.min(...arr))
+      var max = arr.indexOf(Math.max(...arr))
+      // resul.push(['Mayor producción: Dia ', max + 1])
+      // resul.push(['Menor producción: Dia ', min + 1])
+      console.log('Mayor producción: Dia ', max + 1)
+      console.log('Menor producción: Dia ', min + 1)
+      
+      // vaca que dio mas leche por dia
+      console.log(maxLeche)
+      res.json('Ver valores en consola')
+    } catch (e) {
+      throw new TypeError("Ha ocurrido un error con este reto");
+    }
+  }
+
+
   // 5. TrackingCoordinadora
-  
+  // exports.tracking = (req, res) => {
+  //   const result = fetch('https://api.coordinadora.com/cm-model-testing/api/v1/talentos/', {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  //       .then(response => response.json())
+  //       .then(data => console.log(data))
+  //       .then(res.json(data))
+  // }
   // 6. ArrayScore
 // }
 

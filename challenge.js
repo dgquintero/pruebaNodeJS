@@ -1,6 +1,7 @@
-const express = require('express');
 
+const express = require('express');
 const routes = require('./routes/api');
+
 const app = express();
 
 app.use(express.json())
@@ -17,6 +18,25 @@ app.use(express.urlencoded({ extended: true}));
 app.use('/challenge', routes());
 // app.get('/', (req, res) =>{
 //   res.send('index page')
+// })
+
+// 
+// app.get('/challenge/tracking/:apiRoute', async (req, res) => {
+//   try {
+//     const { apiRoute } = req.params
+//     const apiResponse = await fetch({
+//       method: "GET",
+//       url: `https://api.coordinadora.com/cm-model-testing/api/v1/`
+//     })
+      
+//     const apiResponseJson = await apiResponse.json()
+//     // await db.collection('collection').insertOne(apiResponseJson)
+//     console.log(apiResponseJson)
+//     res.send('Done – check console log')
+//   } catch (err) {
+//     console.log(err)
+//     res.status(500).send('Something went wrong')
+//   }
 // })
 
 // lanzar servidor

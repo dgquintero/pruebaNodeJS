@@ -1,3 +1,4 @@
+"use strict";
 const express = require('express');
 const router = express.Router();
 
@@ -15,6 +16,9 @@ module.exports = function(){
   router.get('/sum-array/:arr', retosController.sumArray);
   // TransformArray
   router.get('/transform-array/:arr/:ord', retosController.transformArray);
-
+  // MyCows
+  router.get('/my-cows/:arr/:numero1', retosController.myCows);
+  // 5. TrackingCoordinadora
+  // router.get('/tracking', retosController.tracking)
   return router;
 }
