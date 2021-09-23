@@ -6,4 +6,7 @@ const result = fetch('https://api.coordinadora.com/cm-model-testing/api/v1/talen
   }
 })
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => {
+      console.log(data.data.guias)
+      return data.data.guias;
+    })

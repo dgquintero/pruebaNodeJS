@@ -68,3 +68,8 @@ Se elimina el ultimo signo de exclamación
 Se pasa un array por la url y el orden en el que se se desea ser retornado asc o desc  
 
 - challenge/my-cows/:arr/:numero1
+
+## RUTAS REALIZADAS DESPUES DEL TIEMPO LIMITE 2.5 DÍAS
+- /challenge/tracking/:apiRoute
+Busca la guía o checkpoint pasados por URL
+Eje: /challenge/tracking//challenge/tracking/
